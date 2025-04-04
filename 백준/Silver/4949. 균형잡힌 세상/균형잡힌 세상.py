@@ -31,20 +31,18 @@ sentence = input()
 while sentence != '.':
     data_bool = 'yes'
     for element in sentence:
-        if '(' == element:
+        if element in '([': 
             data_stack.push(element)
-        elif ')' == element:             
+        elif element in ')':
             if '(' == data_stack.top():
                 data_stack.pop()
             else:
-                data_bool = 'no'
-        elif '[' == element:
-            data_stack.push(element)
-        elif ']' == element:
+                data_bool = 'no' 
+        elif element in ']':
             if '[' == data_stack.top():
                 data_stack.pop()
             else:
-                data_bool = 'no'      
+                data_bool = 'no' 
                 
     while not data_stack.isEmpty():
         data_bool = 'no'
