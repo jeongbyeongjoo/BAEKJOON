@@ -11,8 +11,6 @@ for i in range(n):
         x_max = data[0]
     if data[1] > y_max:
         y_max = data[1]
-    
-print(arr)
 
 matrix = [[0 for _ in range(y_max+10)] for _ in range(x_max+10)]
    
@@ -24,7 +22,6 @@ for i in range(n):
 for row in matrix:
     for data in row:
         sum += data
-    print(row)
     
 print(sum)
 
