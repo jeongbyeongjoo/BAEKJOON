@@ -1,9 +1,13 @@
-A, B, V = map(int, input().split())
-diff = A - B
+N, K = map(int, input().split())
+count = 0
+arr = []
 
-day = (V - A) / diff + 1
-
-if int(day) != float(day):
-    day = int(day) + 1
-
-print(int(day))
+for i in range(1, N + 1):
+    if N % i == 0:
+        count += 1
+    if count == K:
+        print(i)
+        exit()
+        
+print(0)
+    
