@@ -1,29 +1,16 @@
-import sys
+from sortedcontainers import SortedSet
 
-input = sys.stdin.readline
+arr = [3, 6, 2, -6, 7, -7, -2, -8]
+s = SortedSet()
 
-n = int(input())
-
-stack = []
-
-for i in range(n):
-    data = list(map(int, input().split()))
-    if (data[0] == 1):
-        stack.append(data[1])
-    elif (data[0] == 2):
-        if len(stack) > 0:
-            print(stack.pop())
+for elem in arr:
+    if elem > 0:                 # 양수인 경우에는
+        s.add(elem)              # treeset에 넣어줍니다.
+    else:                        # 음수인 경우에는 같거나 큰 최초의 위치를 확인합니다.
+        if s.bisect_left(-elem) == len(s):   # 같거나 큰 위치가 없다면
+            print(-1, end=" ")               # -1을 출력합니다.
         else:
-            print(-1)
-    elif (data[0] == 3):
-        print(len(stack))
-    elif (data[0] == 4):
-        if len(stack) > 0:
-            print(0)
-        else:
-            print(1)            
-    elif (data[0] == 5):
-        if len(stack) > 0:
-            print(stack[-1])
-        else:
-            print(-1)
+            print(s[s.bisect_left(-elem)], end=" ") # 있다면 해당 값을 출력합니다.
+
+
+
