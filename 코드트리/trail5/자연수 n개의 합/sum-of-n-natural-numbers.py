@@ -10,8 +10,8 @@ while left <= right:
     mid = (left + right) // 2
     if mid * (mid + 1) // 2 <= s:
         left = mid + 1
-        mid_num = max(mid_num, left)
+        mid_num = max(mid_num, mid)
     else:
         right = mid - 1
 
-print(mid_num-1)
+print(mid_num)
