@@ -1,28 +1,23 @@
+# 5분 48초
+
 import heapq
 
-N = int(input())
-commands = []
+n = int(input())
 
-for _ in range(N):
-    line = input().split()
-    if line[0] == "push":
-        commands.append((line[0], int(line[1])))
-    else:
-        commands.append((line[0],))
+pq = []
 
-heap = []
-
-for elem in commands:
-    if elem[0] == 'push':
-        heapq.heappush(heap, -elem[1])
-    elif elem[0] == 'pop':
-        print(-heapq.heappop(heap))
-    elif elem[0] == 'size':
-        print(len(heap))
-    elif elem[0] == 'empty':
-        if not heap:
-            print(1)
-        else:
+for i in range(n):
+    instruction = input().split()
+    if instruction[0] == 'push':
+        heapq.heappush(pq, int(instruction[1])*-1)
+    elif instruction[0] == 'size':
+        print(len(pq))
+    elif instruction[0] == 'empty':
+        if pq:
             print(0)
-    elif elem[0] == 'top':
-        print(-heap[0])
+        else:
+            print(1)
+    elif instruction[0] == 'pop':
+        print(-heapq.heappop(pq))
+    elif instruction[0] == 'top':
+        print(-pq[0])
