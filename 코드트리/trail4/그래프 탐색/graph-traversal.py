@@ -1,3 +1,5 @@
+# 6분 16초
+
 n, m = map(int, input().split())
 edges = [tuple(map(int, input().split())) for _ in range(m)]
 
