@@ -1,4 +1,4 @@
-# 14분 53초
+# 17분 42초
 
 from collections import deque
 
